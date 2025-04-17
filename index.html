@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hämeenkyrön yhteiskoulu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b'); /* Taustakuva */
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .menu {
+      position: relative;
+    }
+
+    .menu-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    .menu-items {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.9);
+      border-radius: 5px;
+      padding: 0.5rem;
+      z-index: 999;
+    }
+
+    .menu-items a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 0.5rem;
+    }
+
+    .menu-items a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .container {
+      padding: 2rem;
+      background-color: rgba(0,0,0,0.6);
+      max-width: 800px;
+      margin: auto;
+      border-radius: 10px;
+      margin-top: 2rem;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, textarea {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 0.7rem;
+      background-color: #2196f3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background-color: #1976d2;
+    }
+
+    .yt-button {
+      display: block;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .yt-button a {
+      background-color: red;
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .yt-button a:hover {
+      background-color: darkred;
+    }
+
+    img.school-img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Hämeenkyrön yhteiskoulu</div>
+    <div class="menu">
+      <button class="menu-btn" onclick="toggleMenu()">⋮</button>
+      <div class="menu-items" id="menuItems">
+        <a href="#">Etusivu</a>
+        <a href="#">Tietoa</a>
+        <a href="#">Ota yhteyttä</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <img class="school-img" src="https://images.unsplash.com/photo-1581090700227-1e37b190418e" alt="Koulukuva">
+    
+    <h1>Tervetuloa!</h1>
+    <p>Tämä on Hämeenkyrön yhteiskoulun esittelysivu. Täältä löydät tietoa koulustamme, yhteydenottolomakkeen sekä linkin koulun esittelyvideoon.</p>
+
+    <h2>Kysely / palaute</h2>
+    <form>
+      <label>Nimesi:</label>
+      <input type="text" placeholder="Kirjoita nimesi" required>
+
+      <label>Sähköpostiosoite:</label>
+      <input type="email" placeholder="sähköpostisi@example.com" required>
+
+      <label>Mitä haluaisit kysyä tai kertoa meille?</label>
+      <textarea rows="5" placeholder="Kirjoita viestisi tähän..." required></textarea>
+
+      <button type="submit">Lähetä</button>
+    </form>
+
+    <div class="yt-button">
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Katso koulun esittelyvideo</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menuItems");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>
