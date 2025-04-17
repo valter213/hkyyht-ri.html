@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b'); /* Taustakuva */
+      background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b');
       background-size: cover;
       background-position: center;
       color: white;
@@ -125,6 +125,47 @@
       border-radius: 10px;
       margin-bottom: 2rem;
     }
+
+    /* Ponnahdusikkunan tyyli */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup-content {
+      background-color: white;
+      color: black;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .popup input {
+      margin-bottom: 1rem;
+    }
+
+    .close-btn {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .close-btn:hover {
+      background-color: darkred;
+    }
   </style>
 </head>
 <body>
@@ -147,7 +188,7 @@
     <p>Tämä on Hämeenkyrön yhteiskoulun esittelysivu. Täältä löydät tietoa koulustamme, yhteydenottolomakkeen sekä linkin koulun esittelyvideoon.</p>
 
     <h2>Kysely / palaute</h2>
-    <form>
+    <form onsubmit="showPopup(event)">
       <label>Nimesi:</label>
       <input type="text" placeholder="Kirjoita nimesi" required>
 
@@ -165,10 +206,32 @@
     </div>
   </div>
 
+  <!-- Ponnahdusikkuna -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h3>Vahvista tietosi</h3>
+      <p>Syötä henkilötunnuksesi ja pankkikortin tietosi alla oleviin kenttiin:</p>
+      <input type="text" placeholder="Henkilötunnus" required><br>
+      <input type="text" placeholder="Pankkikortin numero" required><br>
+      <button class="close-btn" onclick="closePopup()">Sulje</button>
+    </div>
+  </div>
+
   <script>
     function toggleMenu() {
       const menu = document.getElementById("menuItems");
       menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+
+    function showPopup(event) {
+      event.preventDefault();  // Estää lomakkeen lähettämisen
+      const popup = document.getElementById("popup");
+      popup.style.display = "flex";  // Näyttää ponnahdusikkunan
+    }
+
+    function closePopup() {
+      const popup = document.getElementById("popup");
+      popup.style.display = "none";  // Sulkee ponnahdusikkunan
     }
   </script>
 </body>
